@@ -15,6 +15,10 @@ git clone https://github.com/EngAhmedElBayoumi/plants.git
 ```
 virtualenv env
 ``` 
+# activate virtualenv
+```
+env\Scripts\activate
+````
 
 # install requirments
 ```
