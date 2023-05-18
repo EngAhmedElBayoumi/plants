@@ -1,0 +1,212 @@
+{% extends 'base-ar.html' %}
+{% load static %}
+{% block body %}
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>عن الموقع </h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home:home_ar' %}"><i class="fa fa-home"></i> الصفحة الرئيسية</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">عن الموقع</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### About Area Start ##### -->
+    <section class="about-us-area section-padding-100-0">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>عن الموقع</h2>
+                        <p>نحن الافضل في العناية بالنباتات </p>
+                    </div>
+                    <p>لدينا افضل انواع النباتات وافضل طرق العناية به</p>
+
+                    <!-- Progress Bar Content Area -->
+                    <div class="alazea-progress-bar mb-50">
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>نباتات المكاتب</p>
+                            <div id="bar1" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="80"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>نباتات المطاعم</p>
+                            <div id="bar2" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="70"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>المساحات المفتوحة</p>
+                            <div id="bar3" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="85"></span>
+                            </div>
+                        </div>
+
+                        <!-- Single Progress Bar -->
+                        <div class="single_progress_bar">
+                            <p>الجنائن</p>
+                            <div id="bar4" class="barfiller">
+                                <div class="tipWrap">
+                                    <span class="tip"></span>
+                                </div>
+                                <span class="fill" data-percentage="65"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="alazea-benefits-area">
+                        <div class="row">
+                            <!-- Single Benefits Area -->
+                            <div class="col-12 col-sm-6">
+                                <div class="single-benefits-area">
+                                    <img src="{% static 'img/core-img/b1.png' %}" alt="">
+                                    <h5>جوده النباتات</h5>
+                                    <p>نهدف لتوفير جيل جديد من النباتات ذات الجوده العالية</p>
+                                </div>
+                            </div>
+
+                            <!-- Single Benefits Area -->
+                            <div class="col-12 col-sm-6">
+                                <div class="single-benefits-area">
+                                    <img src="{% static 'img/core-img/b2.png' %}" alt="">
+                                    <h5>افضل خدمات</h5>
+                                    <p>نهدف لتوفير افضل خدمات في مجال العناية بالنباتات </p>
+                                </div>
+                            </div>
+
+                            <!-- Single Benefits Area -->
+                            <div class="col-12 col-sm-6">
+                                <div class="single-benefits-area">
+                                    <img src="{% static 'img/core-img/b3.png' %}" alt="">
+                                    <h5>100% طبيعي</h5>
+                                    <p>نباتات طبيعيه وعلي مستوي علي جدا من النقاء</p>
+                                </div>
+                            </div>
+
+                            <!-- Single Benefits Area -->
+                            <div class="col-12 col-sm-6">
+                                <div class="single-benefits-area">
+                                    <img src="{% static 'img/core-img/b4.png' %}" alt="">
+                                    <h5>العناية بالبيئه</h5>
+                                    <p>النباتات من افضل الطرق للعناية بالبيئه وتنقية الجو من التلوث</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### About Area End ##### -->
+
+     <!-- ##### Service Area Start ##### -->
+     <section class="our-services-area bg-gray section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center">
+                        <h2>خدماتنا</h2>
+                        <p>نحن نوفر افضل الخدمات لك </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-5">
+                    <div class="alazea-service-area mb-100">
+
+                        <!-- Single Service Area -->
+                        <div class="single-service-area d-flex align-items-center wow fadeInUp" data-wow-delay="100ms">
+                            <!-- Icon -->
+                            <div class="service-icon mr-30">
+                                <img src="{% static 'img/core-img/s1.png' %}" alt="">
+                            </div>
+                            <!-- Content -->
+                            <div class="service-content">
+                                <h5>الاعتناء بالنباتات</h5>
+                                <p>نحن نوفر لك افضل المعلومات الشاملة للاعتناء بالنباتات</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Service Area -->
+                        <div class="single-service-area d-flex align-items-center wow fadeInUp" data-wow-delay="300ms">
+                            <!-- Icon -->
+                            <div class="service-icon mr-30">
+                                <img src="{% static 'img/core-img/s2.png' %}" alt="">
+                            </div>
+                            <!-- Content -->
+                            <div class="service-content">
+                                <h5>كمية المياة</h5>
+                                <p>نوفر لك معلومات عن كمية المياة التي يحتاجها النبات</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Service Area -->
+                        <div class="single-service-area d-flex align-items-center wow fadeInUp" data-wow-delay="500ms">
+                            <!-- Icon -->
+                            <div class="service-icon mr-30">
+                                <img src="{% static 'img/core-img/s3.png' %}" alt="">
+                            </div>
+                            <!-- Content -->
+                            <div class="service-content">
+                                <h5>الاعتناء بالفروع </h5>
+                                <p>نوفر لك معلومات للاعتناء بنباتك وفروعه بافضل شكل ممكن</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="alazea-video-area bg-overlay mb-100">
+                        <img src="{% static 'img/bg-img/23.jpg' %}" alt="">
+                        <a href="http://www.youtube.com/watch?v=7HKoqNJtMTQ" class="video-icon">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Service Area End ##### -->    <!-- ##### Service Area End ##### -->
+    {% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'base-ar.html' %}
+{% load static %}
+{% block body %}
+
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>الدفع</h2>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home:home_ar' %}"><i class="fa fa-home"></i> الصفحة الرئيسية</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">الدفع</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Checkout Area Start ##### -->
+    <div class="checkout_area mb-100">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-lg-7">
+                    <div class="checkout_details_area clearfix">
+                        <h5>تفاصيل الفاتورة</h5>
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="first_name">الاسم الاول *</label>
+                                    <input type="text" class="form-control" id="first_name" value="" required>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="last_name">الاسم الاخير *</label>
+                                    <input type="text" class="form-control" id="last_name" value="" required>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="email_address">البريد الالكتروني *</label>
+                                    <input type="email" class="form-control" id="email_address" value="">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="phone_number">رقم الهاتف *</label>
+                                    <input type="number" class="form-control" id="phone_number" min="0" value="">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="company">اسم الشركة</label>
+                                    <input type="text" class="form-control" id="company" value="">
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="company">العنوان *</label>
+                                    <input type="text" class="form-control" id="address" value="">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="city">المدينه *</label>
+                                    <input type="text" class="form-control" id="city" value="">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="state">المحافظة *</label>
+                                    <input type="text" class="form-control" id="state" value="">
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <label for="country">الدولة</label>
+                                    <select class="custom-select d-block w-100" id="country">
+                                        <option value="usa">مصر</option>
+                                        <option value="uk">المانيا</option>
+                                        <option value="ger">فارنسا</option>
+                                        <option value="fra">السعودية</option>
+                                        <option value="ind">الهند</option>
+                                        <option value="aus">استراليا</option>
+                                        <option value="bra">البرازيل</option>
+                                        <option value="cana">كندا</option>
+                                    </select>
+                                </div>
+                                <!--visacard number-->
+                                <div class="col-md-12 mb-4">
+                                    <label for="country">تاريخ الكارت</label>
+                                    <div class="d-flex align-items-center justify-content-between card-atm border rounded">
+                                        <input type="text" class="form-control" placeholder="Card Details" required>
+                                        <div class="d-flex w-50">
+                                            <input type="text" class="form-control px-0" placeholder="MM/YY" required>
+                                            <input type="password" maxlength=3 class="form-control px-0" placeholder="CVV" required>
+                                        </div>
+                                    </div>                               
+                                 </div>
+                                <!--end visacard number-->
+                               
+                                <div class="col-md-12 mb-4">
+                                    <label for="country">اسم حامل البطاقة</label>
+                                    <input type="text" class="form-control" id="country" value="">
+                                </div>
+                                <!--end card holder name-->
+
+
+                                <div class="col-md-12 mb-4">
+                                    <label for="postcode">رقم البريد</label>
+                                    <input type="text" class="form-control" id="postcode" value="">
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <label for="order-notes">ملاحظات علي المنتج</label>
+                                    <textarea class="form-control" id="order-notes" cols="30" rows="10" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                </div>
+                            </div>
+                            <div class="checkout-btn mt-30">
+                                <button type="submit" class="btn alazea-btn w-100">الدفع الان</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="checkout-content">
+                        <h5 class="title--">طلبك</h5>
+                        <div class="products">
+                            <div class="products-data">
+                                <h5>المنتج:</h5>
+                                <div class="single-products d-flex justify-content-between align-items-center">
+                                    <p>{{plant.title}}</p>
+                                    <h5>{{plant.price}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="subtotal d-flex justify-content-between align-items-center">
+                            <h5>السعر</h5>
+                            <h5>{{plant.price}}</h5>
+                        </div>
+                        <div class="shipping d-flex justify-content-between align-items-center">
+                            <h5>عدد المنتجات</h5>
+                            <h5>{{count}}</h5>
+                        </div>
+                        <div class="order-total d-flex justify-content-between align-items-center">
+                            <h5>اجمالي السعر</h5>
+                            <h5>{{total}}</h5>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Checkout Area End ##### -->
+    {% endblock %}

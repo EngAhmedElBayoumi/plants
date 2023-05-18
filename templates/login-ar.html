@@ -1,0 +1,47 @@
+{% extends 'base-ar.html' %}
+{% load static %}
+{% block body %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>تسجيل الدخول</h2>
+        </div>
+
+        <form action="" method="post">
+        {% csrf_token %}
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'img/bg-img/23.jpg' %}" alt="">
+                </div>
+                <div class="col-md-6 ">
+                    <div class="col-md-4 ">
+                        <label for="" class="form-label">اسم المستخدم</label>
+                        <input type="text" name="username" class="form-control cont" id="" value="" required>
+                      </div>
+                    
+                    <div class="col-md-4">
+                        <label for="" class="form-label">الرقم السري</label>
+                        <input type="password" name="password" class="form-control cont" id="" value="" required>
+                      </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary cont">تسجيل</button>
+                        
+                    </div>
+                    <!-- django messege -->
+                    <div class=" text-center" style="margin:20px; width:40vw !important;">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {% endblock %}

@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en " dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>نباتات</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body >
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-circle"></div>
+        <div class="preloader-img">
+            <img src="{% static 'img/core-img/leaf.png' %}" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- ***** Top Header Area ***** -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="infodeercreative@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>البريد الالكتروني: info@gmail.com</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="+1 234 122 122"><i class="fa fa-phone" aria-hidden="true"></i> <span>اتصل بنا: +1 234 122 122</span></a>
+                            </div>
+
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta d-flex">
+                                <!-- Language Dropdown -->
+                                <div class="language-dropdown">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle mr-30" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">اللغات</button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="{%url 'home:home' %}">انجليزي</a>
+                                            <a class="dropdown-item" href="{% url 'home:home_ar' %}">عربي</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Login -->
+                                <div class="login">
+                                    <!-- chech if login or not -->
+                                    {% if user.is_authenticated %}
+                                    <!--check if super user-->
+                                    {% if user.is_superuser %}
+                                    <a href="{% url 'admin:index' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>لوحة التحكم</span></a>
+                                    {% endif %}
+                                    <a href="{% url 'account:logout_ar' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>تسجيل خروج</span></a>
+                                    {% else %}
+                                    <a href="{% url 'account:login_ar' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>تسجيل دخول</span></a>
+                                    <a href="{% url 'account:signin_ar' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>اشتراك</span></a>
+                                    {% endif %}
+                                </div>
+                                <!-- Cart -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***** Navbar Area ***** -->
+        <div class="alazea-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                        <!-- Nav Brand -->
+                        <a href="{% url 'home:home_ar' %}" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'home:home_ar' %}">الصفحة الرئيسية</a></li>
+                                    <li><a href="{% url 'about:about_ar' %}">عن الموقع</a></li>
+                                    <li><a href="{% url 'blog:blog_ar' %}">مقالات</a></li>
+                                    <li><a href="{% url 'plants:plants_ar' %}">نباتات</a></li>
+                                    <li><a href="{% url 'portfolio:portfolio_ar' %}">المعرض</a></li>
+                                    <li><a href="{% url 'contact:contact_ar' %}">تواصل معنا</a></li>
+                                </ul>
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    {% block body %}
+
+
+    {% endblock %} 
+
+    
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area bg-img" style="background-image: url({% static 'img/bg-img/3.jpg' %});">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="single-footer-widget">
+                            <div class="footer-logo mb-30">
+                                <a href="{% url 'home:home' %}"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                            </div>
+                            <p>لدينا ستجد افضل انواع النباتات الموجوده في العالم مع معلومات عن كيفية الاعتناء بها</p>
+                            <div class="social-info">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>روابط سريعه</h5>
+                            </div>
+                            <nav class="widget-nav">
+                                <ul>
+                                    <li><a href="{% url 'home:home_ar' %}">الصفحة الرئيسية</a></li>
+                                    <li><a href="{% url 'about:about_ar' %}">عن الموقع</a></li>
+                                    <li><a href="{% url 'plants:plants_ar' %}">نباتات</a></li>
+                                    <li><a href="{% url 'blog:blog_ar' %}">مقالات</a></li>
+                                    <li><a href="{% url 'portfolio:portfolio_ar' %}">معرض </a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="single-footer-widget">
+                            <div class="widget-title">
+                                <h5>تواصل معنا
+                                </h5>
+                            </div>
+
+                            <div class="contact-information">
+                                <p><span>العنوان:</span> 505 Mansoura</p>
+                                <p><span>رقم الهاتف:</span> +2 122 122 122</p>
+                                <p><span>البريد :</span> info.deercreative@gmail.com</p>
+                                <p><span>ساعات العمل:</span> Mon - Sun: 8 AM to 9 PM</p>
+                                <p><span>ساعات الحظ:</span> Sat: 2 PM to 4 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ##### Footer Area End ##### -->
+
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>

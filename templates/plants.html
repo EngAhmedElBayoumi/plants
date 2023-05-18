@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>Plants</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home:home' %}"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Plants</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### Shop Area Start ##### -->
+    <section class="shop-page section-padding-0-100">
+        <div class="container">    
+            <div class="row">
+                <!-- All Products Area -->
+                <div class="col-12 col-md-8 col-lg-12">
+                    <div class="shop-products-area">
+                        <div class="row">
+                            {% for plants in plants %}
+                                <!-- Single Product Area -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-product-area mb-50">
+                                    <!-- Product Image -->
+                                    <div class="product-img">
+                                        <a href="{% url 'plants:plantdetials' plants.id %}"><img src="{{plants.image.url}}" alt=""></a>
+                                
+                                    </div>
+                                    <!-- Product Info -->
+                                    <div class="product-info mt-15 text-center">
+                                        <a href="{% url 'plants:plantdetials' plants.id %}">
+                                            <p>{{plants.title}}</p>
+                                        </a>
+                                        <h6>{{plants.price}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                    {% if plants.has_other_pages %}
+                    <div class="row">
+                        <div class="col-12">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    {% if plants.has_previous %}
+                                    <li class="page-item"><a class="page-link" href="?page={{plants.previous_page_number}}"><i class="fa fa-angle-left"></i></a></li>
+                                    {% endif %}
+                                    {% for i in plants.paginator.page_range %}
+                                    {% if plants.number == i %}
+                                    <li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                                    {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% if plants.has_next %}
+                                    <li class="page-item"><a class="page-link" href="?page={{plants.next_page_number}}"><i class="fa fa-angle-right"></i></a></li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Shop Area End ##### -->
+    {% endblock %}

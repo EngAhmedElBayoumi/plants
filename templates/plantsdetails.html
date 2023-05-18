@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>Plants DETAILS</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home:home' %}"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'plants:plants' %}">Plants</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Plants Details</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### Single Product Details Area Start ##### -->
+    <section class="single_product_details_area mb-50">
+        <div class="produts-details--content mb-50">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-12 col-md-6 col-lg-5">
+                        <div class="single_product_thumb">
+                            <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <a class="product-img" href="{{plant.image.url}}" title="Product Image">
+                                        <img class="d-block w-100" src="{{plant.image.url}}" alt="1">
+                                    </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="product-img" href="{{plant.image.url}}" title="Product Image">
+                                        <img class="d-block w-100" src="{{plant.image.url}}" alt="1">
+                                    </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="product-img" href="{{plant.image.url}}" title="Product Image">
+                                        <img class="d-block w-100" src="{{plant.image.url}}" alt="1">
+                                    </a>
+                                    </div>
+                                </div>
+                                <ol class="carousel-indicators">
+                                    <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url({{plant.image.url}});">
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url({{plant.image.url}});">
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url({{plant.image.url}});">
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="single_product_desc">
+                            <h4 class="title">{{plant.title}}</h4>
+                            <h4 class="price">${{plant.price}}</h4>
+                            <div class="short_overview">
+                                <p>{{plant.description}}.</p>
+                            </div>
+                            <div class="cart--area d-flex flex-wrap align-items-center">
+                                <!-- Add to Cart Form -->
+                                <form class="cart clearfix d-flex align-items-center" method="post">
+                                    <a href="{% url 'plants:card' plant.id %}" name="addtocart" value="5" class="btn alazea-btn ml-15">Add to cart</a>
+                                </form>                            
+                            </div>
+                            <div class="products--meta">
+                                <p>
+                                    <span>Share on:</span>
+                                    <span>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product_details_tab clearfix">
+                        <!-- Tabs -->
+                        <ul class="nav nav-tabs" role="tablist" id="product-details-tab">
+                            <li class="nav-item">
+                                <a href="#description" class="nav-link active" data-toggle="tab" role="tab">Description</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#addi-info" class="nav-link" data-toggle="tab" role="tab">Additional Information</a>
+                            </li>
+                        </ul>
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade show active" id="description">
+                                <div class="description_area">
+                                    <p>{{plant.description}}</p>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="addi-info">
+                                <div class="additional_info_area">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class=" col-6 col-lg-4">
+                                                <img src="{% static 'img/core-img/s2.png' %}" alt="">
+                                                <h3>water</h3>
+                                                <p>{{plant.water}}</p>
+                                            </div>
+                                            <div class=" col-6 col-lg-4">
+                                                <img src="{% static 'img/core-img/s1.png' %}" alt="">
+                                                <h3>soil</h3>
+                                                <p>{{plant.soil}}</p>
+                                            </div>
+                                            <div class=" col-6 col-lg-4">
+                                                <img src="{% static 'img/core-img/b4.png' %}" alt="">
+                                                <h3>Scientific Name	</h3>
+                                                <p>{{plant.scientific_name}}</p>
+                                            </div>
+                                            <div class=" col-6 col-lg-4">
+                                                <img src="{% static 'img/bg-img/house-32.png' %}" alt="">
+                                                <h3>Habitat</h3>
+                                                <p>{{plant.home}}</p>
+                                            </div>
+                                            <div class=" col-6 col-lg-4">
+                                                <img src="{% static 'img/bg-img/sun-6-32.png' %}" alt="">
+                                                <h3>sun</h3>
+                                                <p>{{plant.sun}}</p>
+                                            </div>
+                                            <div class=" col-6 col-lg-4">
+                                                <img src="{% static 'img/bg-img/leaf-32.png' %}" alt="">
+                                                <h3>Habit Type	</h3>
+                                                <p>{{plant.leaf_type}}</p>
+                                            </div>
+                                        </div>
+                                    </div>                                                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Single Product Details Area End ##### -->
+
+
+    {% endblock %}

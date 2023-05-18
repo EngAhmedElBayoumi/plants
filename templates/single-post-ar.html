@@ -1,0 +1,124 @@
+{% extends 'base-ar.html' %}
+{% load static %}
+{% block body %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <!-- Top Breadcrumb Area -->
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'img/bg-img/24.jpg' %});">
+            <h2>تفاصيل المقالة</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home:home_ar' %}"><i class="fa fa-home"></i> الصفحة الرئيسية</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'blog:blog_ar' %}">المقالات</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">بيانات المقالة</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    <!-- ##### Blog Content Area Start ##### -->
+    <section class="blog-content-area section-padding-0-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Blog Posts Area -->
+                <div class="col-12 col-md-12">
+                    <div class="blog-posts-area">
+                        <!-- Post Details Area -->
+                        <div class="single-post-details-area">
+                            <div class="post-content">
+                                <h4 class="post-title">{{blog.title}}</h4>
+                                <div class="post-meta mb-30">
+                                    <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> {{blog.date}}</a>
+                                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i>{{blog.user}}</a>
+                                </div>
+                                <div class="post-thumbnail mb-30 w-100">
+                                    <img src="{{blog.image.url}}" class="w-100" alt="">
+                                </div>
+                                <p>{{blog.body}}</p>
+                        </div>
+                        <!-- Post Tags & Share -->
+                        <div class="post-tags-share d-flex justify-content-between align-items-center">
+                            <!-- Share -->
+                            <div class="post-share">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <!-- comment area-->
+                        <div class="comment_area">
+                            <h5 class="title">التعليقات</h5>
+                            <ol>
+                                <!-- Single Comment Area -->
+                                {% if comments %}
+                                {% for comment in comments %}
+                                <!-- Single Comment Area -->
+                                <li class="">
+                                    <!-- Comment Content -->
+                                    <div class="ml-4">
+                                        <!-- Comment Author -->
+                                    
+                                        <!-- Comment Meta -->
+                                        <div class="comment-meta">
+                                            <a href="#" class="m2 mr-4"><i class="fa fa-user"></i> {{comment.user}}</a>
+
+                                            <!--date field with clock icon-->
+                                            <a href="#" class="post-date m2"><i class="fa fa-clock-o"></i> {{comment.date}}</a>
+                                            <p class="ml-4">{{comment.comment}}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                                {% else %}
+                                <p>لا يوجد تعليقات بعد</p>
+                                {% endif %}
+                            </ol>
+                        </div>
+                            
+
+                        <!-- Leave A Comment -->
+                        <div class="leave-comment-area clearfix">
+                            <div class="comment-form">
+                                <h4 class="headline">اترك تعليق</h4>
+                                <div class="contact-form-area">
+                                    <!-- Comment Form -->
+                                    <form action="" method="post">
+                            
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <!-- add hidden input value is blog id-->
+                                            <input type="hidden" name="id" value="{{blog.id}}">
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="comment" id="message" cols="30" rows="10" placeholder="Comment" required></textarea>
+                                                </div>
+                                            </div>
+                                            <!--check is login or not-->
+                                            {% if user.is_authenticated %}
+                                            <div class="col-12">
+                                                <button type="submit" class="btn alazea-btn">ارسال</button>
+                                            </div>
+                                            {% else %}
+                                            <div class="col-12">
+                                                <a href="{% url 'account:login_ar' %}" class="btn alazea-btn" > تسجيل الدخول اولا </a>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Blog Content Area End ##### -->
+    {% endblock %}
